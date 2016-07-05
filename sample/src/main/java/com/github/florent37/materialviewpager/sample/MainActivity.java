@@ -12,9 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.arlib.floatingsearchview.FloatingSearchView;
 import com.crashlytics.android.Crashlytics;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
+import com.github.florent37.materialviewpager.sample.fragment.CarpaccioRecyclerViewFragment;
 import com.github.florent37.materialviewpager.sample.fragment.RecyclerViewFragment;
 
 import io.fabric.sdk.android.Fabric;
@@ -23,11 +25,14 @@ public class MainActivity extends DrawerActivity {
 
     private MaterialViewPager mViewPager;
     private Toolbar toolbar;
+    public FloatingSearchView mSearchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         setTitle("");
 
@@ -39,17 +44,25 @@ public class MainActivity extends DrawerActivity {
             setSupportActionBar(toolbar);
         }
 
+      //  mSearchView = (FloatingSearchView) findViewById(R.id.floating_search_view);
+/*        mSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener() {
+            @Override
+            public void onSearchTextChanged(String oldQuery, final String newQuery) {
+
+                //get suggestions based on newQuery
+
+                //pass them on to the search view
+                //mSearchView.swapSuggestions(newSuggestions);
+            }
+        });*/
+
+
         mViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
             @Override
             public Fragment getItem(int position) {
-                switch (position % 4) {
-                    //case 0:
-                    //    return RecyclerViewFragment.newInstance();
-                    //case 1:
-                    //    return RecyclerViewFragment.newInstance();
-                    //case 2:
-                    //    return WebViewFragment.newInstance();
+                switch (position % 2) {
+
                     default:
                         return RecyclerViewFragment.newInstance();
                 }
@@ -57,20 +70,22 @@ public class MainActivity extends DrawerActivity {
 
             @Override
             public int getCount() {
-                return 4;
+                return 2;
             }
 
             @Override
             public CharSequence getPageTitle(int position) {
-                switch (position % 4) {
+                switch (position % 2) {
                     case 0:
-                        return "Selection";
+                        return "Trending";
                     case 1:
-                        return "Actualités";
+                        return "Sessions";
+                    /*
                     case 2:
                         return "Professionnel";
                     case 3:
                         return "Divertissement";
+                        */
                 }
                 return "";
             }
@@ -82,20 +97,24 @@ public class MainActivity extends DrawerActivity {
                 switch (page) {
                     case 0:
                         return HeaderDesign.fromColorResAndUrl(
-                            R.color.green,
-                            "https://fs01.androidpit.info/a/63/0e/android-l-wallpapers-630ea6-h900.jpg");
+                                R.color.green,
+                                "https://fs01.androidpit.info/a/63/0e/android-l-wallpapers-630ea6-h900.jpg");
                     case 1:
                         return HeaderDesign.fromColorResAndUrl(
-                            R.color.blue,
-                            "http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2014/06/wallpaper_51.jpg");
+                                R.color.cyan,
+                                "http://www.droid-life.com/wp-content/uploads/2014/10/lollipop-wallpapers10.jpg");
+                    /*
                     case 2:
                         return HeaderDesign.fromColorResAndUrl(
-                            R.color.cyan,
-                            "http://www.droid-life.com/wp-content/uploads/2014/10/lollipop-wallpapers10.jpg");
+                                R.color.blue,
+                                "http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2014/06/wallpaper_51.jpg");
+
                     case 3:
                         return HeaderDesign.fromColorResAndUrl(
-                            R.color.red,
-                            "http://www.tothemobile.com/wp-content/uploads/2014/07/original.jpg");
+                                R.color.red,
+                                "http://www.tothemobile.com/wp-content/uploads/2014/07/original.jpg");
+
+                                */
                 }
 
                 //execute others actions if needed (ex : modify your header logo)

@@ -34,7 +34,7 @@ public class DrawerActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+       /* mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawer, 0, 0);
         mDrawer.setDrawerListener(mDrawerToggle);
 
@@ -46,12 +46,13 @@ public class DrawerActivity extends AppCompatActivity {
             actionBar.setDisplayUseLogoEnabled(false);
             actionBar.setHomeButtonEnabled(true);
         }
+        */
     }
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        mDrawerToggle.syncState();
+       // mDrawerToggle.syncState();
     }
 
     @Override

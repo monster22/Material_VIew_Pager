@@ -17,6 +17,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.arlib.floatingsearchview.FloatingSearchView;
 import com.astuetz.PagerSlidingTabStrip;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
 import com.github.florent37.materialviewpager.header.MaterialViewPagerImageHelper;
@@ -31,6 +32,7 @@ import android.support.v4.view.ViewCompat;
  * Display a preview with header, actual logo and fake cells
  */
 public class MaterialViewPager extends FrameLayout implements ViewPager.OnPageChangeListener {
+
 
     /**
      * Contains all references to MatervialViewPager's header views
@@ -299,7 +301,6 @@ public class MaterialViewPager extends FrameLayout implements ViewPager.OnPageCh
 
         //add @layout/material_view_pager_layout as child, containing all the MaterialViewPager views
         addView(LayoutInflater.from(getContext()).inflate(R.layout.material_view_pager_layout, this, false));
-
         headerBackgroundContainer = (ViewGroup) findViewById(R.id.headerBackgroundContainer);
         pagerTitleStripContainer = (ViewGroup) findViewById(R.id.pagerTitleStripContainer);
         viewpagerContainer = (ViewGroup) findViewById(R.id.viewpager_layout);
