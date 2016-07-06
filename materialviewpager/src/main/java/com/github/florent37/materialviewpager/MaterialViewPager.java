@@ -10,6 +10,7 @@ import android.os.Parcelable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -254,6 +255,9 @@ public class MaterialViewPager extends FrameLayout implements ViewPager.OnPageCh
         if (position == lastPosition || listener == null) {
             return;
         }
+
+        // I think search can be performed here
+        Log.e("ViewPager:", position+"");
 
         HeaderDesign headerDesign = listener.getHeaderDesign(position);
         if (headerDesign == null) {

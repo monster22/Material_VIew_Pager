@@ -65,7 +65,7 @@
             <com.arlib.floatingsearchview.FloatingSearchView
                 android:id="@+id/floating_search_view"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="55dp"
                 app:floatingSearch_leftActionMode="noLeftAction"
                 app:floatingSearch_menu="@menu/menu_main"
                 android:layout_marginRight="15dp"
@@ -101,7 +101,7 @@
             android:id="@+id/pagerTitleStripContainer"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="140dp"
+            android:layout_marginTop="160dp"
             android:fitsSystemWindows="true"
             tools:background="#3FFF" />
 
